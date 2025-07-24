@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dr. Chirantana Mallick - Research Portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>emailjs.init("qk6gSkuPb_k4qosId");</script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #f4f7fa 0%, #e8ecef 100%);
+      color: #1f2937;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #003366 0%, #004d99 100%);
+      color: white;
+      text-align: center;
+      padding: 2.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #34d058;
+      margin: 1rem auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    header img:hover {
+      transform: scale(1.05);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin: 0.5rem 0;
+    }
+    header p:last-child {
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+    nav {
+      background: #004d99;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #34d058;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    .section {
+      background: white;
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 5px solid #34d058;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    }
+    .section h2 {
+      color: #003366;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .section p, .section ul {
+      font-size: 1rem;
+      color: #374151;
+    }
+    .section ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+    .section ul li {
+      margin: 0.5rem 0;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .skill {
+      background: #d1e7ff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1f2937;
+      transition: background 0.3s ease;
+    }
+    .skill:hover {
+      background: #a3bffa;
+    }
+    .contact {
+      text-align: center;
+      padding: 2rem;
+      background: #004d99;
+      color: white;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .contact a {
+      color: #34d058;
+      text-decoration: none;
+      margin: 0 0.75rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .contact a:hover {
+      color: #ffffff;
+    }
+    .ai-chat {
+      padding: 1.5rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    .ai-chat h2 {
+      color: #003366;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .ai-chat input {
+      width: 70%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .ai-chat input:focus {
+      outline: none;
+      border-color: #004d99;
+      box-shadow: 0 0 0 3px rgba(0, 77, 153, 0.1);
+    }
+    .ai-chat button {
+      padding: 12px 24px;
+      margin-left: 10px;
+      background: #004d99;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .ai-chat button:hover {
+      background: #003366;
+      transform: translateY(-2px);
+    }
+    #chatHistory {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-top: 15px;
+      border: 1px solid #e5e7eb;
+    }
+    .user-msg, .ai-msg {
+      margin: 12px 0;
+      padding: 12px 18px;
+      border-radius: 12px;
+      max-width: 80%;
+      clear: both;
+      font-size: 0.95rem;
+    }
+    .user-msg {
+      background: #d1e7ff;
+      float: right;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .ai-msg {
+      background: #f1f3f5;
+      float: left;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    #emailPrompt {
+      display: none;
+      margin-top: 15px;
+      padding: 10px;
+      background: #f8fafc;
+      border-radius: 8px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 24px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: slideIn 0.3s ease-out;
+      border: 1px solid #e5e7eb;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .close {
+      color: #6b7280;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .close:hover {
+      color: #dc2626;
+    }
+    .send-mail-btn {
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #28a745 0%, #34d058 100%);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 12px 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .send-mail-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    }
+    #mailSuccessMsg {
+      color: #15803d;
+      margin-top: 12px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .modal-content h3 {
+      margin: 0 0 20px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1f2937;
+      text-align: center;
+    }
+    .field {
+      margin-bottom: 16px;
+    }
+    .field label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
+    }
+    .field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: #004d99;
+      box-shadow: 0 0 0 3px rgba(0, 77, 153, 0.1);
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      .section, .ai-chat {
+        margin: 1rem 0;
+        padding: 1rem;
+      }
+      header img {
+        width: 100px;
+        height: 100px;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      nav a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+      }
+      .ai-chat input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .ai-chat button {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Dr. Chirantana Mallick</h1>
+  <p>Assistant Professor & Research Coordinator | JISIASR, JISU, West Bengal, India</p>
+  <img src="profile.jpg" alt="Dr. Chirantana Mallick" onerror="this.style.display='none';" />
+  <p>Last Updated: July 24, 2025</p>
+</header>
+
+<nav>
+  <a href="#overview">Overview</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#publications">Publications</a>
+  <a href="#projects">Projects</a>
+  <a href="#awards">Awards</a>
+  <a href="#chat">Ask Me Anything</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+  <section id="overview" class="section">
+    <h2>Professional Overview</h2>
+    <p>
+      Research professional specializing in BioNLP, Machine Learning, and Deep Learning. With a PhD in Computer Science and Technology from IIEST, Shibpur, I focus on computational intelligence for biomedical article summarization and clinical information retrieval. Currently serving as Assistant Professor and Research Coordinator at the Centre for Data Science, JIS Institute of Advanced Studies & Research (JISIASR), JISU, West Bengal, India, I am passionate about advancing AI-driven solutions in healthcare and academia.
+    </p>
+  </section>
+
+  <section id="education" class="section">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>PhD in Computer Science and Technology</strong> – IIEST, Shibpur (Aug 2018 – Feb 2023)<br>Thesis: Computational Intelligence based Biomedical Article Summarization for Clinical Information Retrieval</li>
+      <li><strong>M.Tech in Computer Science, 86.05%</strong> – IIEST, Shibpur (2016 – 2018)<br>Thesis: Text summarization approaches using Genetic Algorithm with text data mining techniques</li>
+      <li><strong>B.E. in Computer Science and Engineering, 86.96%</strong> – University Institute of Technology, Burdwan University (2011 – 2015)</li>
+      <li><strong>12th [Higher Secondary], 82.40%</strong> – Jadavpur Vidyapith, WBCHSE (2011)</li>
+      <li><strong>10th [Madhyamik], 85.44%</strong> – Jadavpur Vidyapith, WBBSE (2009)</li>
+    </ul>
+  </section>
+
+  <section id="experience" class="section">
+    <h2>Professional Experience</h2>
+    <ul>
+      <li><strong>Assistant Professor & Research Coordinator</strong> – CDS, JISIASR, JISU (2023 – Present)</li>
+      <li><strong>Junior Software Engineer</strong> – Nature Technology Pvt. Ltd., Kolkata (2015 – 2016)</li>
+    </ul>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">LaTeX</span>
+      <span class="skill">C</span>
+      <span class="skill">C++</span>
+      <span class="skill">Natural Language Processing</span>
+      <span class="skill">Text Data Mining</span>
+      <span class="skill">Deep Learning</span>
+      <span class="skill">Machine Learning</span>
+      <span class="skill">Graph Theory</span>
+      <span class="skill">Bio-NLP</span>
+      <span class="skill">BERT</span>
+      <span class="skill">LLM</span>
+      <span class="skill">GenAI</span>
+      <span class="skill">RAG</span>
+      <span class="skill">Hugging Face</span>
+    </div>
+  </section>
+
+  <section id="publications" class="section">
+    <h2>Publications</h2>
+    <h3>Journals</h3>
+    <ul>
+      <li><strong>2025</strong>: DLC-IDS: a novel democratic leadership classification model for intrusion detection systems – <i>The Journal of Supercomputing</i> (SCI)</li>
+      <li><strong>2025</strong>: Evaluating Agent Based Customer Service in Electronics Retail – A Case Study – <i>Power System Protection and Control</i> (SCOPUS)</li>
+      <li><strong>2025</strong>: Intelligent Abstractive Summarization of Bio-medical Article integrating NLP and Deep Learning – <i>Applied Soft Computing</i> (SCI, Under review)</li>
+      <li><strong>2021</strong>: Evolutionary Algorithm based Ensemble Extractive Summarization for Developing Smart Medical System – <i>Interdisciplinary Sciences: Computational Life Sciences</i> (SCI, <a href="https://doi.org/10.1007/s12539-020-00412-5">DOI</a>)</li>
+      <li><strong>2021</strong>: Ensemble summarization of bio-medical articles integrating clustering and multi-objective evolutionary algorithms – <i>Applied Soft Computing</i> (SCI, <a href="https://doi.org/10.1016/j.asoc.2021.107347">DOI</a>)</li>
+    </ul>
+    <h3>Conferences</h3>
+    <ul>
+      <li><strong>2025</strong>: HyGen–a Hybrid Automation Testing Approach for Reducing Hallucination in LLM Based Applications – <i>10th International Conference on Data Management, Analytics & Innovation</i></li>
+      <li><strong>2021</strong>: An Unsupervised COVID-19 Report Summarizer for Developing Smart Healthcare System – <i>Computational Intelligence in Pattern Recognition 2021</i> (ISBN: 978-981-16-2543-5)</li>
+      <li><strong>2021</strong>: A Game Theoretic Approach on Semantic Segmentation Along with Transfer Learning – <i>Computational Intelligence in Pattern Recognition 2021</i> (ISBN: 978-981-16-2543-5)</li>
+      <li><strong>2020</strong>: Deep learning-based automated feature engineering for rice leaf disease prediction – <i>CIPR 2020</i> (<a href="https://doi.org/10.1007/978-981-15-2449-3_11">DOI</a>)</li>
+      <li><strong>2019</strong>: A graph based approach on extractive summarization – <i>Emerging Technologies in Data Mining and Information Security</i> (<a href="https://doi.org/10.1007/978-981-13-1498-8_16">DOI</a>)</li>
+      <li><strong>2019</strong>: Extractive summarization of a document using lexical chains – <i>Soft Computing in Data Analytics</i> (<a href="https://doi.org/10.1007/978-981-13-0514-6_78">DOI</a>)</li>
+      <li><strong>2019</strong>: Graph-based text summarization using modified TextRank – <i>Soft Computing in Data Analytics</i> (<a href="https://doi.org/10.1007/978-981-13-0514-6_14">DOI</a>)</li>
+    </ul>
+    <h3>Book Chapters</h3>
+    <ul>
+      <li><strong>2021</strong>: Evolutionary Algorithm Based Summarization for Analyzing COVID-19 Medical Reports – <i>Understanding COVID-19: The Role of Computational Intelligence</i> (pp. 31–58, <a href="https://doi.org/10.1007/978-3-030-74761-9_2">DOI</a>)</li>
+      <li><strong>2022</strong>: Hybridization of Fuzzy Theory and Nature-Inspired Optimization for Medical Report Summarization – <i>Nature-Inspired Optimization Methodologies in Biomedical and Health Care</i> (Accepted)</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Sponsored Projects</h2>
+    <ul>
+      <li><strong>2025</strong>: AI-Enabled Deep Neural Predictive Model for Assisted Decision-Making in Homoeopathic Medication – Central Council for Research in Homoeopathy (CCRH), Ministry of Ayush (PI)</li>
+      <li><strong>2025</strong>: Using unsupervised learning to detect the patterns of symptoms of common Homeopathic remedies – Central Council for Research in Homoeopathy (CCRH), Ministry of Ayush (Co-I)</li>
+    </ul>
+    <h2>R&D Products</h2>
+    <ul>
+      <li><strong>Speech-to-Text Summarizer</strong>: Tool that transcribes, translates, and summarizes live speech inputs efficiently.</li>
+      <li><strong>AYURR-AI 360</strong>: AI-based system for recommending Ayurvedic treatments tailored to individual needs.</li>
+    </ul>
+    <h2>MoU</h2>
+    <ul>
+      <li><strong>2025</strong>: Two MoU between Central Council for Research in Homoeopathy (CCRH), under the Ministry of Ayush, and JIS Institute of Advanced Studies and Research (JISIASR)</li>
+    </ul>
+  </section>
+
+  <section id="awards" class="section">
+    <h2>Awards & Achievements</h2>
+    <ul>
+      <li>Reviewer committee member, 3rd International Conference on CIPR-2021</li>
+      <li>Best Paper Award for rice leaf disease prediction, CIPR 2020</li>
+      <li>Volunteered in 5th International Conference, IIEST Shibpur</li>
+      <li>Second position in B.E., Burdwan University, 2015</li>
+      <li>MHRD Institute fellowship as SRF and JRF</li>
+      <li>MHRD GATE Scholarship</li>
+    </ul>
+  </section>
+
+  <section id="chat" class="ai-chat">
+    <h2>Ask Me Anything</h2>
+    <div>
+      <input type="text" id="aiInput" placeholder="e.g. What is your experience?" />
+      <button id="aiButton">Send</button>
+    </div>
+    <div id="chatHistory"></div>
+    <div id="emailPrompt">
+      <label for="userEmail">Your Email:</label>
+      <input type="email" id="userEmail" placeholder="you@example.com" />
+      <button onclick="sendConversation()">Submit</button>
+    </div>
+  </section>
+
+  <section class="ai-email">
+    <button onclick="openSendMailModal()" class="send-mail-btn">📩 Send Mail</button>
+    <div id="sendMailModal" class="modal">
+      <div class="modal-content">
+        <span onclick="closeSendMailModal()" class="close">×</span>
+        <h3>Send Your Query to Dr. Chirantana Mallick</h3>
+        <form id="emailForm">
+          <div class="field">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required />
+          </div>
+          <div class="field">
+            <label for="message">Message:</label>
+            <textarea name="message" id="message" required></textarea>
+          </div>
+          <div class="field">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required />
+          </div>
+          <input type="submit" value="Send Email" class="send-mail-btn" />
+        </form>
+        <div id="mailSuccessMsg"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:chirantana9@gmail.com">chirantana9@gmail.com</a></p>
+    <p>Phone: <a href="tel:+916290219438">+91 6290219438</a></p>
+    <p>
+      Connect:
+      <a href="https://www.linkedin.com/in/chirantana-mallick-phd-0a0848b5/">LinkedIn</a>
+    </p>
+  </section>
+</div>
+
+<script type="module">
+import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+
+const gemini = new GoogleGenerativeAI("AIzaSyAyuI0gPeB-7H09R0keUiq__cAWStLWOUE");
+let conversation = [];
+
+const resumeJSON = {
+  "name": "Dr. Chirantana Mallick",
+  "title": "Assistant Professor & Research Coordinator",
+  "affiliation": "Centre for Data Science, JIS Institute of Advanced Studies & Research (JISIASR), JISU, West Bengal, India",
+  "contact": {
+    "email": "chirantana9@gmail.com",
+    "phone": "+91 6290219438",
+    "linkedin": "https://www.linkedin.com/in/chirantana-mallick-phd-0a0848b5/"
+  },
+  "date_of_birth": "18 Dec 1992",
+  "summary": "Research professional specializing in BioNLP, Machine Learning, and Deep Learning. With a PhD in Computer Science and Technology from IIEST, Shibpur, I focus on computational intelligence for biomedical article summarization and clinical information retrieval. Currently serving as Assistant Professor and Research Coordinator at the Centre for Data Science, JIS Institute of Advanced Studies & Research (JISIASR), JISU, West Bengal, India, I am passionate about advancing AI-driven solutions in healthcare and academia.",
+  "education": [
+    {
+      "degree": "PhD in Computer Science and Technology",
+      "institution": "IIEST, Shibpur",
+      "duration": "Aug 2018 - Feb 2023",
+      "thesis_title": "Computational Intelligence based Biomedical Article Summarization for Clinical Information Retrieval",
+      "description": "Text summarization using NLP, graph-based approaches, ML and deep neural models.",
+      "supervisor": "Prof. Asit Kumar Das"
+    },
+    {
+      "degree": "M.Tech in Computer Science",
+      "institution": "IIEST, Shibpur",
+      "duration": "2016 - 2018",
+      "thesis_title": "Text summarization approaches using Genetic Algorithm with text data mining techniques",
+      "percentage": "86.05%"
+    },
+    {
+      "degree": "B.E. in Computer Science and Engineering",
+      "institution": "University Institute of Technology, Burdwan University",
+      "duration": "2011 - 2015",
+      "percentage": "86.96%"
+    },
+    {
+      "qualification": "12th [Higher Secondary]",
+      "institution": "Jadavpur Vidyapith",
+      "board": "WBCHSE",
+      "year": "2011",
+      "percentage": "82.40%"
+    },
+    {
+      "qualification": "10th [Madhyamik]",
+      "institution": "Jadavpur Vidyapith",
+      "board": "WBBSE",
+      "year": "2009",
+      "percentage": "85.44%"
+    }
+  ],
+  "work_experience": [
+    {
+      "position": "Junior Software Engineer",
+      "company": "Nature Technology Pvt. Ltd., Kolkata",
+      "duration": "2015 - 2016"
+    },
+    {
+      "position": "Assistant Professor & Research Coordinator",
+      "institution": "CDS, JISIASR, JISU",
+      "duration": "2023 - Present"
+    }
+  ],
+  "skills": {
+    "programming": ["Python", "LaTeX", "C", "C++"],
+    "areas_of_interest": [
+      "Natural Language Processing",
+      "Text Data Mining",
+      "Deep Learning",
+      "Machine Learning",
+      "Graph Theory"
+    ],
+    "concepts": [
+      "NLP",
+      "Bio-NLP",
+      "BERT",
+      "LLM",
+      "GenAI",
+      "RAG",
+      "Hugging Face",
+      "ML",
+      "DL"
+    ]
+  },
+  "interests": ["Dancing", "Painting", "Book reading", "Travelling"],
+  "languages": ["Bengali", "English", "Hindi"],
+  "scholarships": [
+    "MHRD Institute fellowship as SRF and JRF",
+    "MHRD GATE Scholarship"
+  ],
+  "awards": [
+    "Reviewer committee member, 3rd International Conference on CIPR-2021",
+    "Best Paper Award for rice leaf disease prediction, CIPR 2020",
+    "Volunteered in 5th International Conference, IIEST Shibpur",
+    "Second position in B.E., Burdwan University, 2015"
+  ],
+  "publications": {
+    "journals": [
+      {
+        "year": 2025,
+        "title": "DLC-IDS: a novel democratic leadership classification model for intrusion detection systems",
+        "journal": "The Journal of Supercomputing",
+        "indexing": "SCI"
+      },
+      {
+        "year": 2025,
+        "title": "Evaluating Agent Based Customer Service in Electronics Retail – A Case Study",
+        "journal": "Power System Protection and Control",
+        "indexing": "SCOPUS"
+      },
+      {
+        "year": 2025,
+        "title": "Intelligent Abstractive Summarization of Bio-medical Article integrating NLP and Deep Learning",
+        "journal": "Applied Soft Computing",
+        "indexing": "SCI",
+        "status": "Under review"
+      },
+      {
+        "year": 2021,
+        "title": "Evolutionary Algorithm based Ensemble Extractive Summarization for Developing Smart Medical System",
+        "journal": "Interdisciplinary Sciences: Computational Life Sciences",
+        "indexing": "SCI",
+        "doi": "https://doi.org/10.1007/s12539-020-00412-5"
+      },
+      {
+        "year": 2021,
+        "title": "Ensemble summarization of bio-medical articles integrating clustering and multi-objective evolutionary algorithms",
+        "journal": "Applied Soft Computing",
+        "indexing": "SCI",
+        "doi": "https://doi.org/10.1016/j.asoc.2021.107347"
+      }
+    ],
+    "conferences": [
+      {
+        "year": 2025,
+        "title": "HyGen–a Hybrid Automation Testing Approach for Reducing Hallucination in LLM Based Applications",
+        "conference": "10th International Conference on Data Management, Analytics & Innovation"
+      },
+      {
+        "year": 2021,
+        "title": "An Unsupervised COVID-19 Report Summarizer for Developing Smart Healthcare System",
+        "conference": "Computational Intelligence in Pattern Recognition 2021",
+        "isbn": "978-981-16-2543-5"
+      },
+      {
+        "year": 2021,
+        "title": "A Game Theoretic Approach on Semantic Segmentation Along with Transfer Learning",
+        "conference": "Computational Intelligence in Pattern Recognition 2021",
+        "isbn": "978-981-16-2543-5"
+      },
+      {
+        "year": 2020,
+        "title": "Deep learning-based automated feature engineering for rice leaf disease prediction",
+        "conference": "CIPR 2020",
+        "doi": "https://doi.org/10.1007/978-981-15-2449-3_11"
+      },
+      {
+        "year": 2019,
+        "title": "A graph based approach on extractive summarization",
+        "conference": "Emerging Technologies in Data Mining and Information Security",
+        "doi": "https://doi.org/10.1007/978-981-13-1498-8_16"
+      },
+      {
+        "year": 2019,
+        "title": "Extractive summarization of a document using lexical chains",
+        "conference": "Soft Computing in Data Analytics",
+        "doi": "https://doi.org/10.1007/978-981-13-0514-6_78"
+      },
+      {
+        "year": 2019,
+        "title": "Graph-based text summarization using modified TextRank",
+        "conference": "Soft Computing in Data Analytics",
+        "doi": "https://doi.org/10.1007/978-981-13-0514-6_14"
+      }
+    ],
+    "book_chapters": [
+      {
+        "year": 2021,
+        "title": "Evolutionary Algorithm Based Summarization for Analyzing COVID-19 Medical Reports",
+        "book": "Understanding COVID-19: The Role of Computational Intelligence",
+        "pages": "31–58",
+        "doi": "https://doi.org/10.1007/978-3-030-74761-9_2"
+      },
+      {
+        "year": 2022,
+        "title": "Hybridization of Fuzzy Theory and Nature-Inspired Optimization for Medical Report Summarization",
+        "book": "Nature-Inspired Optimization Methodologies in Biomedical and Health Care",
+        "status": "Accepted"
+      }
+    ]
+  },
+  "sponsored_projects": [
+    {
+      "title": "AI-Enabled Deep Neural Predictive Model for Assisted Decision-Making in Homoeopathic Medication",
+      "year": 2025,
+      "organization": "Central Council for Research in Homoeopathy (CCRH), Ministry of Ayush",
+      "role": "PI"
+    },
+    {
+      "title": "Using unsupervised learning to detect the patterns of symptoms of common Homeopathic remedies",
+      "year": 2025,
+      "organization": "Central Council for Research in Homoeopathy (CCRH), Ministry of Ayush",
+      "role": "Co-I"
+    }
+  ],
+  "r_and_d": [
+    {
+      "product": "Speech-to-Text Summarizer",
+      "description": "Tool that transcribes, translates, and summarizes live speech inputs efficiently."
+    },
+    {
+      "product": "AYURR-AI 360 (Adaptive Yet User-Focused Remedy Recommendation System)",
+      "description": "AI-based system for recommending Ayurvedic treatments tailored to individual needs."
+    }
+  ],
+  "mou": {
+    "year": 2025,
+    "between": [
+      "Central Council for Research in Homoeopathy (CCRH), Ministry of Ayush",
+      "JIS Institute of Advanced Studies and Research (JISIASR)"
+    ]
+  }
+};
+
+const sectionMap = {
+  "about yourself": "summary",
+  "experience": "work_experience",
+  "projects": "sponsored_projects",
+  "mou": "mou",
+  "personal projects": "r_and_d",
+  "r&d": "r_and_d",
+  "development": "r_and_d",
+  "education": "education",
+  "skill": "skills",
+  "skills": "skills",
+  "awards": "awards",
+  "achievement": "awards",
+  "scholarships": "scholarships",
+  "contact": "contact",
+  "mail": "contact",
+  "phone": "contact",
+  "publications": "publications",
+  "about you": "summary",
+  "is chirantana mallick": "summary",
+  "tell me about you": "summary"
+};
+
+async function getGeminiResponse(query) {
+  const model = gemini.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const result = await model.generateContent(query);
+  return result.response.text();
+}
+
+function matchSection(query) {
+  query = query.toLowerCase();
+  for (let key in sectionMap) {
+    if (query.includes(key)) return sectionMap[key];
+  }
+  return null;
+}
+
+function formatAnswer(section) {
+  const data = resumeJSON[section];
+  if (!data) return null;
+
+  if (typeof data === "string") {
+    return data;
+  }
+
+  if (Array.isArray(data)) {
+    return data.map(item => {
+      if (typeof item === "string") {
+        return `- ${item}`;
+      }
+      return `- ${Object.entries(item).map(([key, value]) => `${key}: ${value}`).join(", ")}`;
+    }).join("\n");
+  }
+
+  if (typeof data === "object" && section === "contact") {
+    return Object.entries(data).map(([key, value]) => `- ${key}: ${value}`).join("\n");
+  }
+
+  if (typeof data === "object" && section === "skills") {
+    let result = [];
+    if (data.programming) {
+      result.push("**Programming Languages**");
+      result.push(data.programming.map(item => `- ${item}`).join("\n"));
+    }
+    if (data.areas_of_interest) {
+      result.push("\n**Areas of Interest**");
+      result.push(data.areas_of_interest.map(item => `- ${item}`).join("\n"));
+    }
+    if (data.concepts) {
+      result.push("\n**Concepts**");
+      result.push(data.concepts.map(item => `- ${item}`).join("\n"));
+    }
+    return result.join("\n");
+  }
+
+  if (typeof data === "object" && section === "publications") {
+    let result = [];
+    if (data.journals) {
+      result.push("**Journals**");
+      result.push(data.journals.map(j => `- ${j.year}: ${j.title} – ${j.journal} (${j.indexing}${j.status ? ", " + j.status : ""}${j.doi ? ", " + j.doi : ""})`).join("\n"));
+    }
+    if (data.conferences) {
+      result.push("\n**Conferences**");
+      result.push(data.conferences.map(c => `- ${c.year}: ${c.title} – ${c.conference}${c.doi ? ", " + c.doi : ""}${c.isbn ? ", ISBN: " + c.isbn : ""}`).join("\n"));
+    }
+    if (data.book_chapters) {
+      result.push("\n**Book Chapters**");
+      result.push(data.book_chapters.map(b => `- ${b.year}: ${b.title} – ${b.book}${b.pages ? ", pp. " + b.pages : ""}${b.doi ? ", " + b.doi : ""}${b.status ? ", " + b.status : ""}`).join("\n"));
+    }
+    return result.join("\n");
+  }
+
+  if (typeof data === "object" && section === "r_and_d") {
+    return data.map(d => `- ${d.product}: ${d.description}`).join("\n");
+  }
+
+  if (typeof data === "object" && section === "mou") {
+    return `- ${data.year}: MoU between ${data.between.join(" and ")}`;
+  }
+
+  return null;
+}
+
+async function getAIResponse() {
+  const input = document.getElementById("aiInput").value.trim();
+  const chatBox = document.getElementById("chatHistory");
+
+  if (!input) return;
+
+  chatBox.innerHTML += `<div class="user-msg"><strong>You:</strong> ${input}</div>`;
+  document.getElementById("aiInput").value = "";
+
+  const thinkId = `thinking-${Date.now()}`;
+  chatBox.innerHTML += `<div class="ai-msg" id="${thinkId}"><em>AI is thinking...</em></div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  let responseText = "";
+  const section = matchSection(input);
+
+  if (section) {
+    const result = formatAnswer(section);
+    responseText = result || "No info found.";
+  } else {
+    responseText = await getGeminiResponse(input);
+  }
+
+  const finalReply = responseText && responseText.length > 10
+    ? `<strong>AI:</strong> ${responseText.replace(/\n/g, "<br>")}`
+    : `<strong>AI:</strong> No matching answer found. Please drop your email. Dr. Chirantana will get back to you.`;
+
+  document.getElementById(thinkId).outerHTML = `<div class="ai-msg">${finalReply}</div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  if (responseText.includes("No matching")) {
+    document.getElementById("emailPrompt").style.display = "block";
+  }
+
+  conversation.push({ role: "user", message: input });
+  conversation.push({ role: "ai", message: responseText });
+}
+
+function sendConversation() {
+  const userEmail = document.getElementById("userEmail").value.trim();
+  if (!userEmail || !userEmail.includes("@")) {
+    alert("Please enter a valid email.");
+    return;
+  }
+
+  const history = conversation.map(c => `${c.role.toUpperCase()}: ${c.message}`).join("\n");
+  const emailParams = {
+    from_email: userEmail,
+    to_name: "Dr. Chirantana Mallick",
+    message: `User Email: ${userEmail}\n\nConversation:\n${history}`,
+    to_email: "chirantana9@gmail.com",
+    reply_to: userEmail
+  };
+
+  emailjs.send("service_0pvbpzk", "template_qdpie1q", emailParams)
+    .then(() => {
+      alert("Email sent successfully!");
+      document.getElementById("emailPrompt").style.display = "none";
+      document.getElementById("userEmail").value = "";
+    })
+    .catch(err => alert("Error sending email: " + err.text));
+}
+
+// Attach event listeners
+document.getElementById("aiInput").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") getAIResponse();
+});
+document.getElementById("aiButton").addEventListener("click", getAIResponse);
+</script>
+
+<script>
+function openSendMailModal() {
+  document.getElementById("sendMailModal").style.display = "block";
+  document.getElementById("mailSuccessMsg")?.remove();
+}
+
+function closeSendMailModal() {
+  document.getElementById("sendMailModal").style.display = "none";
+  document.getElementById("email").value = "";
+  document.getElementById("message").value = "";
+  document.getElementById("name").value = "";
+}
+
+function sendUserQueryEmail() {
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const name = document.getElementById("name").value.trim();
+
+  if (!email || !email.includes("@")) {
+    alert("Please enter a valid email.");
+    return;
+  }
+  if (!message) {
+    alert("Please enter a message.");
+    return;
+  }
+
+  const params = {
+    from_email: email,
+    to_name: "Dr. Chirantana Mallick",
+    name: name,
+    message: `User Email: ${email}\n\nQuery:\n${message}`,
+    to_email: "chirantana9@gmail.com",
+    reply_to: email
+  };
+
+  emailjs.send("service_0pvbpzk", "template_qdpie1q", params)
+    .then(() => {
+      const modal = document.querySelector(".modal-content");
+      const msg = document.createElement("div");
+      msg.id = "mailSuccessMsg";
+      msg.innerText = "✅ Successfully sent!";
+      modal.appendChild(msg);
+      document.getElementById("email").value = "";
+      document.getElementById("message").value = "";
+      document.getElementById("name").value = "";
+      setTimeout(() => closeSendMailModal(), 2000);
+    })
+    .catch((err) => {
+      alert("Failed to send email: " + err.text);
+    });
+}
+
+document.getElementById("emailForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  emailjs.sendForm("service_0pvbpzk", "template_qdpie1q", this)
+    .then(() => {
+      document.getElementById("mailSuccessMsg").innerText = "✅ Email sent successfully!";
+      this.reset();
+      setTimeout(() => {
+        closeSendMailModal();
+        document.getElementById("mailSuccessMsg").innerText = "";
+      }, 2000);
+    })
+    .catch((error) => {
+      alert("✅ Email sent successfully!");
+    });
+});
+</script>
+</body>
+</html>
